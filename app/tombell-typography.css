@@ -5,6 +5,11 @@ body {
   font-weight: 400;
 }
 
+/* Hide the floating WhatsApp/call stack. Contact actions remain available in-page. */
+main > div.fixed.bottom-5.right-4 {
+  display: none !important;
+}
+
 .hero {
   min-height: 84svh;
 }
