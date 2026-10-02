@@ -148,6 +148,11 @@ footer {
   font-size: 14px;
 }
 
+/* Remove the old floating WhatsApp / Call contact stack completely. */
+main > div[class*="fixed"][class*="bottom-5"][class*="right-4"][class*="z-[900]"] {
+  display: none !important;
+}
+
 @media (max-width: 1000px) {
   .hero {
     min-height: 88svh;
