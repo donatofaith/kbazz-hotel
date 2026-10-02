@@ -4,6 +4,7 @@ import "./globals.css";
 import "./hero-spacing.css";
 import "./tombell-typography.css";
 import "./stack-scroll.css";
+import "./readability.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
