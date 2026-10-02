@@ -1,8 +1,62 @@
 /* Desktop framing: keep hero content comfortably away from the browser edges. */
 @media (min-width: 1001px) {
   .navbar {
-    width: calc(100% - 96px);
-    max-width: 1580px;
+    width: calc(100% - 180px);
+    max-width: 1480px;
+    min-height: 64px;
+    margin: 26px auto 0;
+    padding: 0;
+
+    border: 0;
+    border-radius: 0;
+
+    background: transparent;
+    box-shadow: none;
+
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .navbar > a:first-child {
+    gap: 10px;
+  }
+
+  .navbar > a:first-child > div:first-child {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  .navLinks {
+    gap: 34px;
+  }
+
+  .navLinks a {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .navButton {
+    min-height: 46px;
+    padding: 0 9px 0 18px;
+    gap: 12px;
+
+    border: 1px solid rgba(255, 255, 255, 0.48);
+    border-radius: 4px;
+
+    background: rgba(10, 10, 10, 0.12);
+    color: #fff;
+
+    font-weight: 600;
+    box-shadow: none;
+  }
+
+  .navButton span {
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    background: #c9a55c;
+    color: #111;
   }
 
   .heroContent {
