@@ -1,0 +1,17 @@
+/* Desktop framing: keep hero content comfortably away from the browser edges. */
+@media (min-width: 1001px) {
+  .navbar {
+    width: calc(100% - 96px);
+    max-width: 1580px;
+  }
+
+  .heroContent {
+    width: calc(100% - 180px);
+    max-width: 1480px;
+  }
+
+  .heroBottom {
+    width: calc(100% - 180px);
+    max-width: 1480px;
+  }
+}
