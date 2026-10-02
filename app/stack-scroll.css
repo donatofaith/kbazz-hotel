@@ -1,0 +1,203 @@
+/* Modern layered scroll treatment: the hero stays pinned while the content panels rise over it. */
+
+html,
+body {
+  background: #090909;
+}
+
+main {
+  position: relative;
+  background: #090909;
+}
+
+/* =========================================================
+   PINNED HERO
+========================================================= */
+
+.hero {
+  position: sticky !important;
+  top: 0;
+  z-index: 0;
+
+  width: calc(100% - 24px) !important;
+  max-width: 1540px;
+  height: calc(100svh - 18px);
+  min-height: calc(100svh - 18px) !important;
+
+  margin: 9px auto 0 !important;
+  border-radius: 28px;
+
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Keep the hero content optically centred inside the full viewport. */
+.heroContent {
+  padding-top: 82px !important;
+  padding-bottom: 68px !important;
+}
+
+/* =========================================================
+   STACKING PANELS
+========================================================= */
+
+#pricing,
+#gallery,
+#reviews,
+#location,
+footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* The first content panel arrives before the hero has completely left view,
+   creating the Framer-style cover/overlap effect. */
+#pricing {
+  z-index: 10;
+  margin-top: -9svh;
+  border-radius: 32px 32px 0 0;
+  box-shadow: 0 -28px 70px rgba(0, 0, 0, 0.18);
+}
+
+#gallery {
+  z-index: 20;
+  margin-top: -24px;
+  border-radius: 32px 32px 0 0;
+  box-shadow: 0 -24px 60px rgba(0, 0, 0, 0.16);
+}
+
+#reviews {
+  z-index: 30;
+  margin-top: -24px;
+  border-radius: 32px 32px 0 0;
+  box-shadow: 0 -24px 60px rgba(0, 0, 0, 0.14);
+}
+
+#location {
+  z-index: 40;
+  margin-top: -24px;
+  border-radius: 32px 32px 0 0;
+  box-shadow: 0 -24px 60px rgba(0, 0, 0, 0.16);
+}
+
+footer {
+  z-index: 50;
+  margin-top: -20px;
+  border-radius: 28px 28px 0 0;
+}
+
+/* A tiny top highlight helps each panel read as a new layer without adding
+   heavy cards or borders. */
+#pricing::before,
+#gallery::before,
+#reviews::before,
+#location::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  z-index: 50;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+#pricing::before,
+#reviews::before {
+  background: rgba(17, 17, 17, 0.08);
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+  .hero {
+    width: calc(100% - 16px) !important;
+    height: calc(100svh - 12px);
+    min-height: calc(100svh - 12px) !important;
+    margin-top: 6px !important;
+    border-radius: 24px;
+  }
+
+  .heroContent {
+    padding-top: 92px !important;
+    padding-bottom: 66px !important;
+  }
+
+  #pricing {
+    margin-top: -7svh;
+  }
+
+  #pricing,
+  #gallery,
+  #reviews,
+  #location {
+    border-radius: 26px 26px 0 0;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+  .hero {
+    width: calc(100% - 8px) !important;
+    height: calc(100svh - 6px);
+    min-height: calc(100svh - 6px) !important;
+    margin-top: 3px !important;
+    border-radius: 20px;
+  }
+
+  .heroContent {
+    width: calc(100% - 30px) !important;
+    padding-top: 96px !important;
+    padding-bottom: 64px !important;
+  }
+
+  #pricing {
+    margin-top: -6svh;
+  }
+
+  #gallery,
+  #reviews,
+  #location {
+    margin-top: -16px;
+  }
+
+  #pricing,
+  #gallery,
+  #reviews,
+  #location {
+    border-radius: 22px 22px 0 0;
+  }
+
+  footer {
+    margin-top: -12px;
+    border-radius: 20px 20px 0 0;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero {
+    position: relative !important;
+    height: auto;
+    min-height: 92svh !important;
+  }
+
+  #pricing {
+    margin-top: 0;
+  }
+
+  #gallery,
+  #reviews,
+  #location,
+  footer {
+    margin-top: 0;
+  }
+}
